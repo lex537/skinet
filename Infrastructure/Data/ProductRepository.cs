@@ -5,7 +5,7 @@ using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure
+namespace Infrastructure.Data
 {
    public class ProductRepository : IProductRepository
    {
@@ -17,9 +17,7 @@ namespace Infrastructure
 
         public async Task<IReadOnlyList<ProductBrand>> GetProductBrandsAsync()
         {
-            return await _context.ProductBrands
-
-               .ToListAsync();
+            return await _context.ProductBrands.ToListAsync();
         }
 
         public async Task<Product> GetProductByIdAsync(int id)
